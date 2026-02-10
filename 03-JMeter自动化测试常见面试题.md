@@ -253,7 +253,7 @@
 
 ---
 
-### 21. 遇到 “Out of Memory” 怎么处理？
+### 21. 遇到 "Out of Memory" 怎么处理？
 
 - 调大 JVM 堆内存：修改 `jmeter` 或 `jmeter.bat` 中的 `HEAP`（如 `-Xms1g -Xmx4g`）。
 - 减少监听器：关闭或禁用 View Results Tree，少用「保存完整响应」的监听器。
