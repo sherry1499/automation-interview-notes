@@ -18,11 +18,38 @@ pipeline {
             }
         }
 
-        stage('运行测试') {
+        stage('单元测试') {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pytest test_demo.py test_login_api.py test_ask_api.py -v -s
+                    pytest test_demo.py -v
+                '''
+            }
+        }
+
+        stage('接口测试') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pytest test_login_api.py test_ask_api.py test_add_user_api.py -v -s
+                '''
+            }
+        }
+
+        stage('回归测试-用户管理') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pytest test_regression.py -m user_manage -v -s
+                '''
+            }
+        }
+
+        stage('回归测试-智能对话') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pytest test_regression.py -m dialogue -v -s
                 '''
             }
         }
