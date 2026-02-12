@@ -266,6 +266,7 @@ dist/              # 忽略构建产物
 > 本地未推送：`git reset --hard HEAD~1`；已推送到远程：`git revert HEAD`。
 
 ### Q7：git reset 的三种模式？
+11111
 
 > --soft 保留暂存区和工作区；--mixed（默认）清空暂存区保留工作区；--hard 全部清空（慎用）。
 
