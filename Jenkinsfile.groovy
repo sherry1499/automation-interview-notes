@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
-                    pip install pytest
+                    pip install pytest requests
                 '''
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pytest test_demo.py -v
+                    pytest test_demo.py test_login_api.py test_ask_api.py -v -s
                 '''
             }
         }
