@@ -22,7 +22,8 @@ pipeline {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pytest test_demo.py -v
+                    pip install pytest-cov
+                    pytest test_demo.py --cov=test_demo --cov-report=term-missing -v
                 '''
             }
         }
